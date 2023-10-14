@@ -19,10 +19,13 @@ ngOnInit(): void {
 
 onIncreaseClick() {
   this.cigaretteCount++;
+  localStorage.setItem('cigaretteCount', JSON.stringify(this.cigaretteCount));
 
 }
 
 onDecreaseClick() {
+  if (this.cigaretteCount < 1) return;
   this.cigaretteCount--;
+  localStorage.setItem('cigaretteCount', JSON.stringify(this.cigaretteCount));
 }
 }
