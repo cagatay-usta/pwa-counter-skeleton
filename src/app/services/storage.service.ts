@@ -8,14 +8,10 @@ export class StorageService {
 
   retrieveCigarettes() {
     const raw = localStorage.getItem('cigarettes');
-    if (raw) {
-      return JSON.parse(raw);
-    } else {
-      return 0;
-    }
+    return raw ? JSON.parse(raw) : 0;
   }
 
   storeCigarettes(count: number) {
-    localStorage.setItem('cigarettes', JSON.stringify(count))
+    localStorage.setItem('cigarettes', JSON.stringify(count));
   }
 }
