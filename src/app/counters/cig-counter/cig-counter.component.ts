@@ -6,7 +6,7 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-cig-counter',
   templateUrl: './cig-counter.component.html',
-  styleUrls: ['./cig-counter.component.css'],
+  styleUrls: ['./cig-counter.component.scss'],
 })
 export class CigCounterComponent implements OnInit {
   cigaretteCount: number = 0;
