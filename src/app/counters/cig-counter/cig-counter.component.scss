@@ -1,0 +1,13 @@
+@use "/src/style/theme" as *;
+
+h1 {
+  color: $brand-secondary;
+}
+
+.counter-button {
+  color: $brand-gray;
+  background-color: $brand-primary;
+  border: none;
+  padding: .8rem;
+  cursor: pointer;
+}
