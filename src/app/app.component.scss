@@ -1,0 +1,11 @@
+@use "/src/style/theme" as *;
+
+
+main {
+  background-color: $brand-gray;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+}
