@@ -1,0 +1,19 @@
+@use "/src/style/theme" as *;
+
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.menu-item {
+  list-style: none;
+  > a {
+    text-decoration: none;
+    color: $brand-secondary;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline $brand-primary;
+    }
+  }
+}

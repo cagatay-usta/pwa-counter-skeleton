@@ -1,3 +1,4 @@
+@use "/src/style/theme" as *;
 *{
   margin: 0;
   padding: 0;
@@ -7,4 +8,8 @@
 }
 #root{
   margin:0 auto;
+}
+body {
+background-color: $brand-gray;
+  height: 100dvh;
 }
