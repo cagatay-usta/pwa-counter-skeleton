@@ -1,19 +1,13 @@
 @use "/src/style/theme" as *;
 
-.menu-list {
+.menu-toolbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
-}
-
-.menu-item {
-  list-style: none;
-  > a {
-    text-decoration: none;
-    color: $brand-secondary;
-    font-weight: bold;
-    &:hover {
-      text-decoration: underline $brand-primary;
-    }
+  & .menu-container {
+    display: flex;
+    align-items: center;
   }
 }
+
