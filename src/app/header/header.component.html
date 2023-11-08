@@ -1,6 +1,6 @@
 <mat-toolbar class="menu-toolbar">
   <div class="menu-container">
-    <button mat-icon-button class="menu-icon">
+    <button mat-icon-button class="menu-icon" (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Skeleton Counter</span>
@@ -15,3 +15,9 @@
     </button>
   </div>
 </mat-toolbar>
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="over">
+    <a routerLink="cig-counter">Cig Counter</a>
+  </mat-drawer>
+  <mat-drawer-content> <ng-content></ng-content> </mat-drawer-content>
+</mat-drawer-container>
