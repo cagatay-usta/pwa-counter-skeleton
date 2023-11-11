@@ -7,11 +7,15 @@
     <span class="menu-spacer"></span>
   </div>
   <div class="menu-container">
-    <button mat-icon-button class="menu-icon favorite-icon">
-      <mat-icon>favorite</mat-icon>
+    <button
+      mat-icon-button
+      class="menu-icon favorite-icon"
+      (click)="importData()"
+    >
+      <mat-icon>download</mat-icon>
     </button>
-    <button mat-icon-button class="menu-icon">
-      <mat-icon>share</mat-icon>
+    <button mat-icon-button class="menu-icon" (click)="exportData()">
+      <mat-icon>upload</mat-icon>
     </button>
   </div>
 </mat-toolbar>

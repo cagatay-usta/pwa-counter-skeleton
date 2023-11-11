@@ -14,4 +14,28 @@ export class StorageService {
   storeCigarettes(count: number) {
     localStorage.setItem('cigarettes', JSON.stringify(count));
   }
+
+  exportFile() {
+    const data = JSON.stringify(localStorage);
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(
+      new Blob([data as BlobPart], { type: 'text/txt' })
+    );
+    a.download = 'export.txt';
+    a.click();
+  }
+
+  importFile() {
+    const input = document.createElement('input');
+    input.type = 'file';
+
+    let importedData: string = '';
+
+    input.onchange = () => {
+      input.files?.[0].text().then((data) => console.log(typeof data));
+      console.log(importedData);
+    };
+
+    input.click();
+  }
 }
