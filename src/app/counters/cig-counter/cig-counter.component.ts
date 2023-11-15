@@ -14,17 +14,20 @@ export class CigCounterComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.cigaretteCount = this.storageService.retrieveCigarettes();
+    this.storageService.retrieveCigarettes();
+    this.storageService.cigaretteSubject.subscribe((count) => {
+      this.cigaretteCount = count;
+    });
   }
 
   onIncreaseClick() {
     this.cigaretteCount++;
-    this.storageService.storeCigarettes(this.cigaretteCount);
+    this.storageService.storeItem('cigarettes', this.cigaretteCount);
   }
 
   onDecreaseClick() {
     if (this.cigaretteCount < 1) return;
     this.cigaretteCount--;
-    this.storageService.storeCigarettes(this.cigaretteCount);
+    this.storageService.storeItem('cigarettes', this.cigaretteCount);
   }
 }

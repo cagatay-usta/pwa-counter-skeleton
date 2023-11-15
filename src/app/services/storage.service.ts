@@ -1,21 +1,47 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 // TODO: convert retrievals to observables for live data sharing
 // TODO: refactor methods for general key/value pairs instead of specific items
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
+  store = {
+    itemTypes: ['cigarettes', 'calories'],
+    cigaretteCount: 0,
+  };
+  cigaretteCount: number = 0;
+  cigaretteSubject: Subject<number> = new Subject();
+
   constructor() {}
 
   retrieveCigarettes() {
     const raw = localStorage.getItem('cigarettes');
-    return raw ? JSON.parse(raw) : 0;
+    this.cigaretteCount = raw ? JSON.parse(raw) : 0;
+    this.cigaretteSubject.next(this.cigaretteCount);
   }
 
-  storeCigarettes(count: number) {
-    localStorage.setItem('cigarettes', JSON.stringify(count));
+  // TODO
+  retrieveItem(){}
+
+  retrieveItems() {
+    this.store.itemTypes.forEach((item) => {
+      const storedValue = localStorage.getItem(item);
+      if (storedValue) {
+        try {
+           this.store[item as keyof typeof this.store] = JSON.parse(storedValue)
+        } catch (error) {
+          console.error(`Error parsing ${item}: ${error}`);
+        }
+      }
+    });
+  }
+
+  storeItem(key: string, count: number) {
+    localStorage.setItem(key, JSON.stringify(count));
   }
 
   exportFile() {
@@ -46,6 +72,7 @@ export class StorageService {
             Object.keys(parsedData).forEach((key) => {
               localStorage.setItem(key, parsedData[key]);
             });
+            this.retrieveCigarettes();
           }
         } catch (error) {
           console.error('Error importing data: ', error);
