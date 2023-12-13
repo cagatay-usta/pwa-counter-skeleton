@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { StorageService } from 'src/app/services/storage.service';
 
 // TODO: work on css
@@ -14,10 +15,7 @@ export class CigCounterComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.storageService.retrieveCigarettes();
-    this.storageService.cigaretteSubject.subscribe((count) => {
-      this.cigaretteCount = count;
-    });
+    this.cigaretteCount = this.storageService.retrieveItem('cigarettes');
   }
 
   onIncreaseClick() {

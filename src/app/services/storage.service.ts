@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 // TODO: convert retrievals to observables for live data sharing
-// TODO: refactor methods for general key/value pairs instead of specific items
-
 
 @Injectable({
   providedIn: 'root',
@@ -11,28 +9,25 @@ import { Subject } from 'rxjs';
 export class StorageService {
   store = {
     itemTypes: ['cigarettes', 'calories'],
-    cigaretteCount: 0,
   };
-  cigaretteCount: number = 0;
-  cigaretteSubject: Subject<number> = new Subject();
 
+  storageChange$: Observable<void> = new Observable();
   constructor() {}
 
-  retrieveCigarettes() {
-    const raw = localStorage.getItem('cigarettes');
-    this.cigaretteCount = raw ? JSON.parse(raw) : 0;
-    this.cigaretteSubject.next(this.cigaretteCount);
+  // TODO
+  retrieveItem(name: string) {
+    const raw = localStorage.getItem(name);
+    return raw && JSON.parse(raw);
   }
 
-  // TODO
-  retrieveItem(){}
-
+  // TODO fix observable next
   retrieveItems() {
     this.store.itemTypes.forEach((item) => {
       const storedValue = localStorage.getItem(item);
       if (storedValue) {
         try {
-           this.store[item as keyof typeof this.store] = JSON.parse(storedValue)
+          this.store[item as keyof typeof this.store] = JSON.parse(storedValue);
+          this.storageChange$.next('e');
         } catch (error) {
           console.error(`Error parsing ${item}: ${error}`);
         }
@@ -72,7 +67,7 @@ export class StorageService {
             Object.keys(parsedData).forEach((key) => {
               localStorage.setItem(key, parsedData[key]);
             });
-            this.retrieveCigarettes();
+            this.retrieveItems();
           }
         } catch (error) {
           console.error('Error importing data: ', error);
