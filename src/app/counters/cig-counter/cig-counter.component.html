@@ -1,7 +1,23 @@
 <div class="cig-counter">
-  <h1>Cigarettes Smoked: {{cigaretteCount}}</h1>
+  <h1>Cigarettes Smoked</h1>
+  <ul>
+    <li>
+      Total: <span>{{ cigaretteCount }}</span>
+    </li>
+    <li>Daily: <span>NA</span></li>
+    <li>
+      Packs to Date: <span>{{ cigaretteCount / 20 }}</span>
+    </li>
+    <li>
+      TRY to Date: <span>{{ cigaretteCount * 2.5 }}</span>
+    </li>
+  </ul>
   <div class="button-group">
-    <button type="button" class="counter-button" (click)="onDecreaseClick()">Decrease</button>
-    <button type="button" class="counter-button" (click)="onIncreaseClick()">Increase</button>
+    <button type="button" class="counter-button" (click)="onDecreaseClick()">
+      Decrease
+    </button>
+    <button type="button" class="counter-button" (click)="onIncreaseClick()">
+      Increase
+    </button>
   </div>
 </div>

@@ -9,10 +9,23 @@ $button-size: 7rem;
   justify-content: space-evenly;
 }
 
-h1 {
+h1, ul, li {
   color: $brand-secondary;
   font-size: 1.8rem;
+}
+
+h1, ul {
   align-self: center;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  span {
+    font-weight: bold;
+  }
 }
 
 .button-group {
