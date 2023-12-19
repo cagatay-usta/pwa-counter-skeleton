@@ -16,6 +16,9 @@ export class CigCounterComponent implements OnInit {
 
   ngOnInit(): void {
     this.cigaretteCount = this.storageService.retrieveItem('cigarettes');
+    this.storageService.storageChange$.subscribe(() => {
+      this.cigaretteCount = this.storageService.retrieveItem('cigarettes');
+    });
   }
 
   onIncreaseClick() {

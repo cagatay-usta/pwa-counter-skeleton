@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-// TODO: convert retrievals to observables for live data sharing
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  store = {
+  private store = {
     itemTypes: ['cigarettes', 'calories'],
   };
 
-  storageChange$: Observable<void> = new Observable();
+  private storageChangeSubject = new BehaviorSubject(null);
+  storageChange$ = this.storageChangeSubject.asObservable();
+
   constructor() {}
 
-  // TODO
+
   retrieveItem(name: string) {
     const raw = localStorage.getItem(name);
     return raw && JSON.parse(raw);
   }
 
-  // TODO fix observable next
   retrieveItems() {
     this.store.itemTypes.forEach((item) => {
       const storedValue = localStorage.getItem(item);
       if (storedValue) {
         try {
           this.store[item as keyof typeof this.store] = JSON.parse(storedValue);
-          this.storageChange$.next('e');
+          this.storageChangeSubject.next(null);
         } catch (error) {
           console.error(`Error parsing ${item}: ${error}`);
         }
