@@ -21,7 +21,10 @@
 </mat-toolbar>
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="over">
-    <a routerLink="cig-counter" (click)="drawer.toggle()">Cig Counter</a>
+    <div class="sidenav-links">
+      <a routerLink="cig-counter" (click)="drawer.toggle()">Cig Counter</a>
+      <a routerLink="cal-counter" (click)="drawer.toggle()">Cal Counter</a>
+    </div>
   </mat-drawer>
   <mat-drawer-content> <ng-content></ng-content> </mat-drawer-content>
 </mat-drawer-container>

@@ -11,14 +11,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CaloriesCounterComponent } from './counters/calories-counter/calories-counter.component';
 
 const appRoutes: Routes = [
   { path: 'cig-counter', component: CigCounterComponent },
+  { path: 'cal-counter', component: CaloriesCounterComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, CigCounterComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    CigCounterComponent,
+    HeaderComponent,
+    CaloriesCounterComponent,
+  ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -33,7 +40,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
