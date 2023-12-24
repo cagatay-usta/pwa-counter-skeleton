@@ -1,1 +1,27 @@
-<p>calories-counter works!</p>
+<div class="cal-counter">
+  <div class="stats-container">
+    <p>Calories Today: {{ calories }}</p>
+  </div>
+
+  <div class="items-container">
+    <p>Common Items</p>
+    <ul class="common-items">
+      <li *ngFor="let item of commonItems">{{ item }}</li>
+    </ul>
+  </div>
+
+  <div class="button-group">
+    <button type="button" class="counter-button" (click)="onDecreaseClick()">
+      Delete Item
+    </button>
+    <button type="button" class="counter-button" (click)="onIncreaseClick()">
+      Add Item
+    </button>
+    <button type="button" class="counter-button" (click)="onDecreaseClick()">
+      Decrease Cals
+    </button>
+    <button type="button" class="counter-button" (click)="onIncreaseClick()">
+      Manual Add Cals
+    </button>
+  </div>
+</div>
