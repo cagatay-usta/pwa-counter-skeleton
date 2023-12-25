@@ -15,10 +15,10 @@ import {
 })
 export class CaloriesCounterComponent {
   calories: number = 0;
-  commonItems: foodItem[] = defaultCommonItems;
+  commonFoodItems: foodItem[] = defaultCommonItems;
 
-  getCommonItemNames() {
-    return this.commonItems.map((item) => item.name);
+  getCommonFoodItemNames() {
+    return this.commonFoodItems.map((item) => item.name);
   }
 
   onDecreaseClick() {}
