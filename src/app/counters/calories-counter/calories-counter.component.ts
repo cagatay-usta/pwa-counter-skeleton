@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
+import {
+  foodItem,
+  commonItems as defaultCommonItems,
+} from './food-items.consts';
 
 // TODO: track item usage to display common items
 // TODO: only display all items if clicked
+// TODO: add items inside cards and create button groups for adding/removing directly to cals
 
 @Component({
   selector: 'app-calories-counter',
@@ -10,15 +15,11 @@ import { Component } from '@angular/core';
 })
 export class CaloriesCounterComponent {
   calories: number = 0;
-  commonItems: string[] = [
-    'egg',
-    'ramen',
-    'cup-o-soup',
-    'pasta',
-    'yoghurt',
-    'wrap',
-    'rice',
-  ];
+  commonItems: foodItem[] = defaultCommonItems;
+
+  getCommonItemNames() {
+    return this.commonItems.map((item) => item.name);
+  }
 
   onDecreaseClick() {}
 

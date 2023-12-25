@@ -6,7 +6,7 @@
   <div class="items-container">
     <p>Common Items</p>
     <ul class="common-items">
-      <li *ngFor="let item of commonItems">{{ item }}</li>
+      <li *ngFor="let item of getCommonItemNames()">{{ item | titlecase }}</li>
     </ul>
   </div>
 
