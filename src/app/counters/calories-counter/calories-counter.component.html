@@ -5,11 +5,11 @@
 
   <div class="items-container">
     <p>Common Items</p>
-    <ul class="common-items">
-      <li *ngFor="let item of getCommonFoodItemNames()">
+    <div class="item-cards-container">
+      <div class="item-card" *ngFor="let item of getCommonFoodItemNames()">
         {{ item | titlecase }}
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 
   <div class="button-group">
