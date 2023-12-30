@@ -13,11 +13,13 @@
     </li>
   </ul>
   <div class="button-group">
-    <button type="button" class="counter-button" (click)="onDecreaseClick()">
-      Decrease
-    </button>
-    <button type="button" class="counter-button" (click)="onIncreaseClick()">
-      Increase
-    </button>
+    <app-common-button
+      label="Decrease"
+      (click)="onDecreaseClick()"
+    ></app-common-button>
+    <app-common-button
+      label="Increase"
+      (click)="onIncreaseClick()"
+    ></app-common-button>
   </div>
 </div>

@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CaloriesCounterComponent } from './counters/calories-counter/calories-counter.component';
+import { CommonButtonComponent } from './components/common-button/common-button.component';
 
 const appRoutes: Routes = [
   { path: 'cig-counter', component: CigCounterComponent },
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
     CigCounterComponent,
     HeaderComponent,
     CaloriesCounterComponent,
+    CommonButtonComponent,
   ],
   imports: [
     BrowserModule,

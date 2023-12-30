@@ -1,7 +1,5 @@
 @use "/src/style/theme" as *;
 
-$button-size: 7rem;
-
 .cal-counter {
   height: 90dvh;
   display: flex;
@@ -22,17 +20,6 @@ p {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 1rem;
-  
-  .counter-button {
-    height: $button-size;
-    width: $button-size;
-    color: $brand-gray;
-    background-color: $brand-primary;
-    cursor: pointer;
-    border-radius: 100%;
-    border: 2px dashed $brand-secondary;
-    
-  }
 }
 
 .items-container {
