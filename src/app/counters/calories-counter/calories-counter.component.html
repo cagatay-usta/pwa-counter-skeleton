@@ -6,9 +6,11 @@
   <div class="items-container">
     <p>Common Items</p>
     <div class="item-cards-container">
-      <div class="item-card" *ngFor="let item of getCommonFoodItemNames()">
-        {{ item | titlecase }}
-      </div>
+      <app-item-card
+        *ngFor="let item of getCommonFoodItemNames()"
+        [label]="item"
+      >
+      </app-item-card>
     </div>
   </div>
 

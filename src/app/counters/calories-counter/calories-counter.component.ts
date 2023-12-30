@@ -7,7 +7,6 @@ import {
 // TODO: track item usage to display common items
 // TODO: only display all items if clicked
 // TODO: add items inside cards and create button groups for adding/removing directly to cals
-// TODO: convert buttons to FAB buttons
 
 @Component({
   selector: 'app-calories-counter',
@@ -22,7 +21,4 @@ export class CaloriesCounterComponent {
     return this.commonFoodItems.map((item) => item.name);
   }
 
-  onDecreaseClick() {}
-
-  onIncreaseClick() {}
 }

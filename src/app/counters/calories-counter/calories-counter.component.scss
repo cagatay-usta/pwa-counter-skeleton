@@ -30,14 +30,6 @@ p {
     gap: 2rem;
     flex-wrap: wrap;
 
-    .item-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 8rem;
-      width: 12rem;
-      border: 1px dashed $brand-primary;
-      padding: 1rem;
-    }
+    
   }
 }
