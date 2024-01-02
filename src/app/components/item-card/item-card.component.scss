@@ -2,10 +2,19 @@
 
 .item-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 8rem;
   width: 12rem;
   border: 1px dashed $brand-primary;
   padding: 1rem;
+
+  .button-group {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+
+
+  }
 }
