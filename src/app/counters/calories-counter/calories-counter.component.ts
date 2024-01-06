@@ -3,6 +3,7 @@ import {
   foodItem,
   commonItems as defaultCommonItems,
 } from './food-items.consts';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 
 // TODO: track item usage to display common items
 // TODO: only display all items if clicked
@@ -17,8 +18,11 @@ export class CaloriesCounterComponent {
   calories: number = 0;
   commonFoodItems: foodItem[] = defaultCommonItems;
 
+  constructor() {}
+
   getCommonFoodItemNames() {
     return this.commonFoodItems.map((item) => item.name);
   }
+
 
 }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-item-card',
@@ -7,4 +9,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ItemCardComponent {
   @Input() label: string = '';
+
+  constructor(public modal: MatDialog) {}
+
+  openModal() {
+    this.modal.open(ModalComponent);
+  }
 }

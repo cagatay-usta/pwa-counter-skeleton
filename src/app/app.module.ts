@@ -12,9 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CaloriesCounterComponent } from './counters/calories-counter/calories-counter.component';
 import { CommonButtonComponent } from './components/common-button/common-button.component';
 import { ItemCardComponent } from './components/item-card/item-card.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 const appRoutes: Routes = [
   { path: 'cig-counter', component: CigCounterComponent },
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
     CaloriesCounterComponent,
     CommonButtonComponent,
     ItemCardComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
