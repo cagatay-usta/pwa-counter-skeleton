@@ -17,6 +17,7 @@ import { CaloriesCounterComponent } from './counters/calories-counter/calories-c
 import { CommonButtonComponent } from './components/common-button/common-button.component';
 import { ItemCardComponent } from './components/item-card/item-card.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'cig-counter', component: CigCounterComponent },
@@ -49,6 +50,8 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatSidenavModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

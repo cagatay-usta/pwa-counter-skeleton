@@ -1,9 +1,18 @@
-<h1 mat-dialog-title>Edit Item</h1>
+<h1 mat-dialog-title>Edit {{ item }}</h1>
 <div mat-dialog-content class="item-input">
-  <input type="text" />
-  <input type="number" name="calories" id="calories" />
+  <form [formGroup]="foodForm">
+    <input type="text" formControlName="name" />
+    <input
+      type="number"
+      name="calories"
+      id="calories"
+      formControlName="calories"
+    />
+  </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
+  <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onSave()">
+    Save
+  </button>
 </div>
