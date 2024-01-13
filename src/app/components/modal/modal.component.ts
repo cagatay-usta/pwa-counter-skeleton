@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { defaultItem, modalItem } from './modal-item.model';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 // TODO: convert forms to dynamic forms to let modals and cards used for all item types
 
@@ -11,13 +13,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ModalComponent {
   @Output() save = new EventEmitter();
-  @Input() item: string = 'Ramen';
 
-  constructor(public modalRef: MatDialogRef<ModalComponent>) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: modalItem,
+    public modalRef: MatDialogRef<ModalComponent>
+  ) {}
 
-  foodForm = new FormGroup({
-    name: new FormControl(this.item),
-    calories: new FormControl(32),
+  modalForm = new FormGroup({
+    name: new FormControl(this.data.name),
+    calories: new FormControl(this.data.calories),
   });
   onCancel() {
     return;

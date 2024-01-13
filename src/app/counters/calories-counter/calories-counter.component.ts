@@ -19,10 +19,4 @@ export class CaloriesCounterComponent {
   commonFoodItems: foodItem[] = defaultCommonItems;
 
   constructor() {}
-
-  getCommonFoodItemNames() {
-    return this.commonFoodItems.map((item) => item.name);
-  }
-
-
 }

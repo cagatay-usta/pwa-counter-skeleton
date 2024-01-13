@@ -7,8 +7,8 @@
     <p>Common Items</p>
     <div class="item-cards-container">
       <app-item-card
-        *ngFor="let item of getCommonFoodItemNames()"
-        [label]="item"
+        *ngFor="let item of commonFoodItems"
+        [item]="item"
       >
       </app-item-card>
     </div>

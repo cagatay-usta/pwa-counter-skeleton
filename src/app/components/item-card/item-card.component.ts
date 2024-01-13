@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { defaultItem, modalItem } from '../modal/modal-item.model';
 
 @Component({
   selector: 'app-item-card',
@@ -8,11 +9,11 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./item-card.component.scss'],
 })
 export class ItemCardComponent {
-  @Input() label: string = '';
+  @Input() item: modalItem = defaultItem;
 
   constructor(public modal: MatDialog) {}
 
   openModal() {
-    this.modal.open(ModalComponent);
+    this.modal.open(ModalComponent, { data: this.item });
   }
 }
